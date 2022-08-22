@@ -36,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests().antMatchers("/signup").permitAll()
+                .and().authorizeRequests().antMatchers("/signin").permitAll()
                 .and().authorizeRequests().antMatchers("/h2/**").permitAll();
 
         http.headers().frameOptions().disable(); // This is important in order to access the h2 database
